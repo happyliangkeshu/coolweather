@@ -10,6 +10,8 @@ import java.net.URL;
 import android.text.TextUtils;
 
 import com.coolweather.app.db.CoolWeatherDB;
+import com.coolweather.app.model.City;
+import com.coolweather.app.model.County;
 import com.coolweather.app.model.Province;
 
 public class HttpUtil {
@@ -54,24 +56,6 @@ public class HttpUtil {
 		}).start();
 	}
 
-	public synchronized static boolean handleProvicesResponse(
-			CoolWeatherDB coolWeatherDB, String response) {
 
-		if (!TextUtils.isEmpty(response)) {
-			String[] allProvinces = response.split(",");
-			if (allProvinces != null && allProvinces.length > 0) {
-				for (String p : allProvinces) {
-					String[] array = p.split("\\|");
-					Province province = new Province();
-					province.setProvinceCode(array[0]);
-					province.setProvinceName(array[1]);
-
-				}
-			}
-			return true;
-		}
-		return false;
-
-	}
-
+	
 }

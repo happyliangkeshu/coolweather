@@ -11,19 +11,21 @@ public class CoolWeatherOpenHelper extends SQLiteOpenHelper {
 	private static final String CREATE_PROVINCE =
 			"create table Province(" +
 			"id integer primary key autoincrement," +
-			"province_name text" +
+			"province_name text," +
 			"province_code text)";
+	// 数据库建表中，不能夹杂任何中文字符，不然就无法识别
+	// 数据库建表完成之后，一定要测试数据库，是否OK
 	private static final String CREATE_CITY = 
 			"create table City(" +
 			"id integer primary key autoincrement," +
-			"city_name text" +
-			"city_code text" +
+			"city_name text," +
+			"city_code text," +
 			"province_id integer)";
 	private static final String CREATE_COUNTY = 
 			"create table County(" +
 			"id integer primary key autoincrement," +
-			"county_name text" +
-			"county_code text" +
+			"county_name text," +
+			"county_code text," +
 			"city_id integer)";
 
 	public CoolWeatherOpenHelper(Context context, String name,
